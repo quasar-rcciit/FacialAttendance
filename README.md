@@ -28,6 +28,10 @@ _pip_ installer is required to install the packages required in this software. W
 Open the folder in which you downloaded the project, open a terminal in that directory and run `pip install -r requirements.txt` command. If all the previous steps are followed correctly, this command will install and setup the software in your computer system. It will need some time based on your system hardware, but for sure the software will be ready to use.
 
 ### Step 6:
+Place the pictures of the candidates in file `ImageAttandance` With the names of the candidate as the file name of the picture (.jpeg/.jpg)
+(Sample images of Bill Gates, Elon Musk and Satya Nandella provided for demo usage. 
+
+### Step 7:
 Run this command in a terminal in that directory, `python attendance.py`. Allow the software to use your camera or webcam and enjoy the creation.
 
 ## If you reached here, I am sure that you have interest in this software. Do let me know the feedback after using this software for a while. Also suggest any constructive ideas to improve the same. Hit the **star** if you like this.
