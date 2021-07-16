@@ -39,7 +39,10 @@ Run this command in a terminal in that directory, `python attendance.py`. Allow 
 ### Here is a demo video of the application in action!
 
 
-https://user-images.githubusercontent.com/63705023/125896286-f6efa979-7c6f-481c-b9ca-5634558a01c3.mp4
+
+https://user-images.githubusercontent.com/63705023/125898850-490dd979-d510-472d-b5c8-c5774a19006f.mp4
+
+
 
 
 ## If you reached here, I am sure that you have interest in this software. Do let me know the feedback after using this software for a while. Also suggest any constructive ideas to improve the same. Hit the **star** if you like this.
