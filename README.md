@@ -30,7 +30,7 @@ _pip_ installer is required to install the packages required in this software. W
 Open the folder in which you downloaded the project, open a terminal in that directory and run `pip install -r requirements.txt` command. If all the previous steps are followed correctly, this command will install and setup the software in your computer system. It will need some time based on your system hardware, but for sure the software will be ready to use.
 
 ### Step 6:
-Place the pictures of the candidates in file `ImageAttandance` With the names of the candidate as the file name of the picture (.jpeg/.jpg)
+Place the pictures of the candidates in file `ImageAttendance` With the names of the candidate as the file name of the picture (.jpeg/.jpg)
 (Sample images of Bill Gates, Elon Musk and Satya Nandella provided for demo usage. 
 
 ### Step 7:

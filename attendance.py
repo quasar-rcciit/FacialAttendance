@@ -4,7 +4,7 @@ import face_recognition
 import os
 from datetime import datetime
 
-path = "ImageAttandance"
+path = "ImageAttendance"
 images = []
 classNames = []
 mylist = os.listdir(path)
@@ -26,8 +26,8 @@ def findEncodings(images):
     return encodeList
 
 
-def markAttandance(name):
-    with open("Attandance.csv", "r+") as f:
+def markAttendance(name):
+    with open("Attendance.csv", "r+") as f:
         myDataList = f.readlines()
         nameList = []
         for line in myDataList:
@@ -75,7 +75,7 @@ while True:
                 (255, 255, 255),
                 2,
             )
-            markAttandance(name)
+            markAttendance(name)
     cv2.imshow("Webcam", img)
     cv2.waitKey(1)
 # faceLoc = face_recognition.face_locations(imgElon)[0]
