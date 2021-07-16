@@ -45,3 +45,5 @@ https://user-images.githubusercontent.com/63705023/125896286-f6efa979-7c6f-481c-
 ## If you reached here, I am sure that you have interest in this software. Do let me know the feedback after using this software for a while. Also suggest any constructive ideas to improve the same. Hit the **star** if you like this.
 
 ![thanks](https://media.giphy.com/media/3o6ozuHcxTtVWJJn32/giphy.gif)
+
+This README is Designed and written by [Soham Sarkar](https://github.com/smart-worker)
