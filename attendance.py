@@ -3,8 +3,34 @@ import numpy as np
 import face_recognition
 import os
 from datetime import datetime
+from PIL import Image
+import urllib.request
+import requests
+jsondata = [{
+    "imagepath": "https://static.dezeen.com/uploads/2021/06/elon-musk-architect_dezeen_1704_col_1.jpg",
+    "imagename": "Elon Mask",
 
+},{
+    "imagepath": "https://content.fortune.com/wp-content/uploads/2020/09/CNV.10.20.FORTUNE_BILL_AND_MELINDA_GATES_030-vertical.jpg",
+    "imagename": "Bill gates",
+
+},{
+    "imagepath": "https://media.wired.com/photos/5cd03fc84ef5ad318eea3885/master/w_2560%2Cc_limit/microsoft-3590.jpg",
+    "imagename": "Satya Nadella",
+
+}]
+# path = "E:\pics"
+mylist = jsondata
 path = "ImageAttendance"
+for cl in mylist:
+    currImg = cl["imagepath"]
+    # setting filename and image URL
+    i = 0
+    filename = str(i)
+    image_url = cl["imagepath"]
+    im = Image.open(requests.get(image_url, stream=True).raw)
+    im.save("E:\code\\" + "facerecog\ImageAttendance\p" + cl["imagename"] + ".jpg")
+    i = i + 1
 images = []
 classNames = []
 mylist = os.listdir(path)
@@ -13,6 +39,10 @@ for cl in mylist:
     currImg = cv2.imread(f"{path}/{cl}")
     images.append(currImg)
     classNames.append(os.path.splitext(cl)[0])
+    # print(currImg)
+    # print(images)
+    # print(classNames)
+    # exit()
 
 print(classNames)
 
