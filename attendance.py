@@ -29,7 +29,7 @@ for cl in mylist:
     filename = str(i)
     image_url = cl["imagepath"]
     im = Image.open(requests.get(image_url, stream=True).raw)
-    im.save("E:\code\\" + "facerecog\ImageAttendance\p" + cl["imagename"] + ".jpg")
+    im.save("E:\code\\" + "FacialAttendance\ImageAttendance\p" + cl["imagename"] + ".jpg")
     i = i + 1
 images = []
 classNames = []
