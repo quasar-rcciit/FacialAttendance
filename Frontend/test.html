@@ -14,7 +14,7 @@
       <label for="imagepath">Image Link</label>
       <input id="imagepath" name="imagepath" type="text"/>
     </div>    
-    <button type="submit">Send It!</button>
+    <button type="submit" value="Download">Send It!</button>
   </form>
 </section>
 
@@ -36,7 +36,10 @@ function handleFormSubmit(event) {
     const results = document.querySelector('.results pre');
     results.innerText = JSON.stringify(formJSON, null, 2);
     console.log(results.innerText);
-    const fs = require('fs');
+    //const fs = require('fs');
+    //var element = document.createElement('a');
+    //element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(results.innerText));
+    // element.setAttribute('download', data);
     //writeFileSync('test.json', results.innerText);
   }
   

@@ -6,71 +6,40 @@ from datetime import datetime
 from PIL import Image
 import urllib.request
 import requests
-jsondata = [{
-    "imagepath": "https://static.dezeen.com/uploads/2021/06/elon-musk-architect_dezeen_1704_col_1.jpg",
-    "imagename": "Elon Mask",
+import internet_ping
+import attendance
 
-},{
-    "imagepath": "https://content.fortune.com/wp-content/uploads/2020/09/CNV.10.20.FORTUNE_BILL_AND_MELINDA_GATES_030-vertical.jpg",
-    "imagename": "Bill gates",
 
-},{
-    "imagepath": "https://media.wired.com/photos/5cd03fc84ef5ad318eea3885/master/w_2560%2Cc_limit/microsoft-3590.jpg",
-    "imagename": "Satya Nadella",
+ping = internet_ping.is_connected()
 
-}]
-path = "E:\pics"
+if ping == True:
+    pass
+else:
+    print("Internet connection not found! Please connect to internet")
+    exit()
 
-# path = "ImageAttendance"
+jsondata = attendance.jsondata
+
+mylist = jsondata
+path = "ImageAttendance"
+attendance.download(mylist)
 images = []
 classNames = []
-mylist = jsondata
-# mylist = os.listdir(path)
+mylist = os.listdir(path)
 print(mylist)
 for cl in mylist:
-    # currImg = cv2.imread(cl.imagepath)
-    currImg = cl["imagepath"]
-    # setting filename and image URL
-    i = 0
-    filename = str(i) + '.jpg'
-    image_url = cl["imagepath"]
-    im = Image.open(requests.get(image_url, stream=True).raw)
-    im.save("E:\pics\p" + filename + ".jpg")
     currImg = cv2.imread(f"{path}/{cl}")
-    print(currImg)
     images.append(currImg)
     classNames.append(os.path.splitext(cl)[0])
+    # print(currImg)
+    # print(images)
+    # print(classNames)
+    # exit()
 
 print(classNames)
 
-
-def findEncodings(images):
-    encodeList = []
-    for img in images:
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        encode = face_recognition.face_encodings(img)[0]
-        encodeList.append(encode)
-    return encodeList
-
-
-def markAttendance(name):
-    with open("Attendance.csv", "r+") as f:
-        myDataList = f.readlines()
-        nameList = []
-        for line in myDataList:
-            entry = line.split(",")
-            nameList.append(entry[0])
-        if name not in nameList:
-            now = datetime.now()
-            tmString = now.strftime("%H:%M:%S")
-            dtString = now.strftime("%d/%m/%Y")
-            f.writelines(f"\n{name},{tmString},{dtString}")
-
-        print(myDataList)
-
-
-encodeListKnown = findEncodings(images)
-print("Encoding Complete")
+encodeListKnown = attendance.findEncodings(images)
+print("Encoding complete!")
 cap = cv2.VideoCapture(0)
 
 while True:
@@ -102,9 +71,10 @@ while True:
                 (255, 255, 255),
                 2,
             )
-            markAttendance(name)
+            attendance.markAttendance(name)
     cv2.imshow("Webcam", img)
     cv2.waitKey(1)
+
 # faceLoc = face_recognition.face_locations(imgElon)[0]
 # encodeElon = face_recognition.face_encodings(imgElon)[0]
 # cv2.rectangle(imgElon,(faceLoc[3],faceLoc[0]),(faceLoc[1],faceLoc[2]),(255,0,255),2)
