@@ -1,0 +1,16 @@
+[
+      {
+            "id": 1,
+            "name": "Soham Banerjee",
+            "imglink": "https://media-exp1.licdn.com/dms/image/C5603AQGJstXwJTDFYA/profile-displayphoto-shrink_200_200/0/1595435365305?e=1632960000&v=beta&t=KPlhmcylUrL_i4MTL-hDxqDI3T1nxbuKpDEZe1atCHU",
+            "roll": 2,
+            "dept": "CSE"
+      },
+      {
+            "id": 2,
+            "name": "Subhadip datta",
+            "imglink": "not now",
+            "roll": 50,
+            "dept": "CSE"
+      }
+]

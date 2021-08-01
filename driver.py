@@ -8,6 +8,7 @@ import urllib.request
 import requests
 import internet_ping
 import attendance
+import mysql.connector
 
 
 ping = internet_ping.is_connected()
