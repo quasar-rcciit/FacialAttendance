@@ -17,23 +17,22 @@ try:
                             VALUES(%s, %s, %s, %s, %s)"""
 
     print("Enter ID")
-    id=int(input())
+    id = int(input())
     print("Enter Name")
-    name= input()
+    name = input()
     print("Img Link")
-    ImgLink= input()
+    ImgLink = input()
     print("Roll")
-    roll=int(input())
+    roll = int(input())
     print("Dept")
-    dept=input()
-    val = (id,name, ImgLink,roll,dept)
-
+    dept = input()
+    val = (id, name, ImgLink, roll, dept)
 
     cursor = connection.cursor()
-    #result = cursor.execute(mySql_Create_Table_Query)
-    result1=cursor.execute(mySql_Fetch_Table_Query,val)
+    # result = cursor.execute(mySql_Create_Table_Query)
+    result1 = cursor.execute(mySql_Fetch_Table_Query, val)
     connection.commit()
-    print (result1)
+    print(result1)
 
     print("Table created successfully ")
 

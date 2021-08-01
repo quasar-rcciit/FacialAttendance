@@ -10,20 +10,27 @@ try:
 
     cursor = connection.cursor()
     result1 = cursor.execute(mySql_Fetch_Table_Query)
-    items=[]
-    
+    items = []
+
     result = cursor.fetchall()
     for row in result:
-        items.append({'id':row[0],'name':row[1],'imglink':row[2], 'roll':row[3],'dept':row[4]})
+        items.append(
+            {
+                "id": row[0],
+                "name": row[1],
+                "imglink": row[2],
+                "roll": row[3],
+                "dept": row[4],
+            }
+        )
 
     connection.commit()
-    #result1=str(result1)
-    out_file = open("myfile.json", "w") 
-    
-    json.dump(items, out_file, indent = 6) 
-    
-    print(items)
+    # result1=str(result1)
+    out_file = open("myfile.json", "w")
 
+    json.dump(items, out_file, indent=6)
+
+    print(items)
 
     print("Table fetched successfully ")
 
