@@ -7,22 +7,8 @@ from PIL import Image
 import urllib.request
 import requests
 import internet_ping
-
-
-jsondata = [
-    {
-        "imagepath": "https://static.dezeen.com/uploads/2021/06/elon-musk-architect_dezeen_1704_col_1.jpg",
-        "imagename": "Elon Mask",
-    },
-    {
-        "imagepath": "https://content.fortune.com/wp-content/uploads/2020/09/CNV.10.20.FORTUNE_BILL_AND_MELINDA_GATES_030-vertical.jpg",
-        "imagename": "Bill gates",
-    },
-    {
-        "imagepath": "https://media.wired.com/photos/5cd03fc84ef5ad318eea3885/master/w_2560%2Cc_limit/microsoft-3590.jpg",
-        "imagename": "Satya Nadella",
-    },
-]
+import Database.datafetch
+import Database.datawirte
 
 
 def findEncodings(images):
@@ -46,6 +32,7 @@ def markAttendance(name):
             tmString = now.strftime("%H:%M:%S")
             dtString = now.strftime("%d/%m/%Y")
             f.writelines(f"\n{name},{tmString},{dtString}")
+            Database.datawirte.recordattendance(name, tmString, dtString)
 
         print(myDataList)
 
@@ -53,12 +40,15 @@ def markAttendance(name):
 def download(mylist):
     for cl in mylist:
         currImg = cl["imagepath"]
-    # setting filename and image URL
-    i = 0
-    filename = str(i)
-    image_url = cl["imagepath"]
-    im = Image.open(requests.get(image_url, stream=True).raw)
-    im.save(
-        "E:\code\\" + "FacialAttendance\ImageAttendance\p" + cl["imagename"] + ".jpg"
-    )
-    i = i + 1
+        # setting filename and image URL
+        i = 0
+        filename = str(i)
+        image_url = cl["imagepath"]
+        im = Image.open(requests.get(image_url, stream=True).raw)
+        im.save(
+            "E:\code\\"
+            + "FacialAttendance\ImageAttendance\p"
+            + cl["imagename"]
+            + ".jpg"
+        )
+        i = i + 1

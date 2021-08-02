@@ -9,6 +9,8 @@ import requests
 import internet_ping
 import attendance
 import mysql.connector
+import Database.datafetch
+import Database.datawirte
 
 
 ping = internet_ping.is_connected()
@@ -19,7 +21,7 @@ else:
     print("Internet connection not found! Please connect to internet")
     exit()
 
-jsondata = attendance.jsondata
+jsondata = Database.datafetch.fetch_json()
 
 mylist = jsondata
 path = "ImageAttendance"
@@ -39,6 +41,7 @@ for cl in mylist:
 
 print(classNames)
 
+print("Encoding Please Wait...")
 encodeListKnown = attendance.findEncodings(images)
 print("Encoding complete!")
 cap = cv2.VideoCapture(0)
