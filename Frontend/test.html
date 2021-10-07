@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="test.css">
+<section class="contact-form">
+  <h1>Trying to take in JSON input</h1>
+  <p>Under construction site @buggy.</p>
+  
+  <form>   
+    
+    <div class="input-group">
+      <label for="imagename">Full Name</label>
+      <input id="imagename" name="imagename" type="text"/>
+    </div>
+    
+    <div class="input-group">
+      <label for="imagepath">Image Link</label>
+      <input id="imagepath" name="imagepath" type="text"/>
+    </div>    
+    <button type="submit" value="Download">Send It!</button>
+  </form>
+</section>
+
+<div class="results">
+  <h2>Form Data</h2>
+  <pre></pre>
+</div>
+
+<script >
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+   
+    
+    const data = new FormData(event.target);
+    
+    const formJSON = Object.fromEntries(data.entries());  
+    
+    const results = document.querySelector('.results pre');
+    results.innerText = JSON.stringify(formJSON, null, 2);
+    console.log(results.innerText);
+    //const fs = require('fs');
+    //var element = document.createElement('a');
+    //element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(results.innerText));
+    // element.setAttribute('download', data);
+    //writeFileSync('test.json', results.innerText);
+  }
+  
+  const form = document.querySelector('.contact-form');
+  form.addEventListener('submit', handleFormSubmit);
+  </script>
+
+

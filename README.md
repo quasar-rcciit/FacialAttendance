@@ -1,6 +1,7 @@
 
 
-# FacialAttendance
+# FacialAttendance (DYNAMIC VERSION !)
+## Under construction!
 Sounds interesting right? Why not try it once?
 <br>
 ## Overview:
