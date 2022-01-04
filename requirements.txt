@@ -4,4 +4,4 @@ numpy==1.21.0
 face-recognition==1.3.0
 opencv-python==4.5.2.54
 black==21.6b0
-pillow==8.3.1
+pillow==8.3.2
